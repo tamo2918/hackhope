@@ -1,0 +1,1330 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FBF8CC;
+    color: #03045E;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1440px;
+    min-height: 2000px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #FBF8CC;
+}
+
+/* Header Styles */
+.header {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 34px 97px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.logo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #03045E;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+}
+
+/* Navigation */
+.navigation {
+    position: absolute;
+    left: 50%;
+    top: 34px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 61px;
+}
+
+.navigation li {
+    margin: 0;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #03045E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #474306;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #474306;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 29px;
+    align-items: center;
+    z-index: 10;
+    position: relative;
+}
+
+/* Twitter icon adjustment */
+.social-icons .social-link:first-child {
+    margin-top: 6px;
+}
+
+.social-link {
+    display: block;
+    width: 26px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(8%) sepia(73%) saturate(6157%) hue-rotate(240deg) brightness(92%) contrast(101%);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    filter: brightness(0) saturate(100%) invert(28%) sepia(85%) saturate(1284%) hue-rotate(44deg) brightness(95%) contrast(95%);
+}
+
+/* New Social Icons */
+.instagram-icon, .discord-icon {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #03045E;
+    transition: all 0.3s ease;
+}
+
+.instagram-icon svg, .discord-icon svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+.instagram-icon:hover, .discord-icon:hover {
+    color: #474306;
+    transform: scale(1.1);
+}
+
+.instagram-icon:hover {
+    color: #E1306C; /* Instagram brand color */
+}
+
+.discord-icon:hover {
+    color: #5865F2; /* Discord brand color */
+}
+
+/* Decorative Elements */
+.hamburger-menu {
+    position: absolute;
+    right: 60px;
+    top: 150px;
+    width: 50px;
+    height: 56px;
+    z-index: 5;
+}
+
+.hamburger-lines {
+    position: absolute;
+    left: 97px;
+    top: 480px;
+    width: 103.85px;
+    height: 29.44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line {
+    width: 16.77px;
+    height: 29.44px;
+    background-color: #474306;
+    border-radius: 2px;
+}
+
+.plus-icon, .plus-icon2, .plus-icon3 {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+}
+
+.plus-icon {
+    left: 0px;
+    top: 16px;
+}
+
+.plus-icon2 {
+    left: 26px;
+    top: 32px;
+}
+
+.plus-icon3 {
+    left: 26px;
+    top: 0px;
+}
+
+.plus-vertical, .plus-horizontal {
+    position: absolute;
+    background-color: #474306;
+    border-radius: 6px;
+}
+
+.plus-vertical {
+    width: 6px;
+    height: 24px;
+    left: 9px;
+    top: 0px;
+}
+
+.plus-horizontal {
+    width: 24px;
+    height: 6px;
+    left: 0px;
+    top: 9px;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 150px 97px 200px;
+    min-height: 600px;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 1.16;
+    color: #03045E;
+    text-align: left;
+    margin: 0 0 80px 0;
+    max-width: 1200px;
+    position: relative;
+    z-index: 3;
+}
+
+/* Typing Animation */
+.typing-text {
+    display: inline-block;
+    position: relative;
+}
+
+.typing-cursor {
+    display: inline-block;
+    font-weight: 400;
+    color: #F7F197;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Typing effect styles */
+.typing-text::after {
+    content: '';
+    display: inline-block;
+}
+
+.hero-location {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.5;
+    color: #03045E;
+    margin: 80px 0 0 0;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* Details Button - moved to hero section */
+.details-button {
+    position: relative;
+    left: 0;
+    margin: 40px 0 0 0;
+    width: 164px;
+    height: 68px;
+    background-color: #F5EE84;
+    border: 1px solid #474306;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.details-button span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #474306;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.details-button:hover {
+    background-color: #474306;
+    transform: scale(1.05);
+}
+
+.details-button:hover span {
+    color: #F5EE84;
+}
+
+/* Mission Section - moved up */
+.mission {
+    position: relative;
+    padding: 50px 97px 100px;
+    min-height: 600px;
+}
+
+.mission-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 1.16;
+    color: #F7F197;
+    margin: 0 0 50px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.mission-quote {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.833;
+    color: #03045E;
+    margin: 0;
+    max-width: 900px;
+    position: relative;
+    z-index: 3;
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.1), rgba(245, 238, 132, 0.2));
+    border-left: 6px solid #F7F197;
+    padding: 40px 50px 40px 60px;
+    border-radius: 0 15px 15px 0;
+    font-style: italic;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.mission-quote::before {
+    content: '"';
+    position: absolute;
+    font-size: 120px;
+    font-weight: 800;
+    color: rgba(247, 241, 151, 0.3);
+    left: 15px;
+    top: -10px;
+    line-height: 1;
+    font-family: 'Poppins', serif;
+}
+
+.mission-quote::after {
+    content: '"';
+    position: absolute;
+    font-size: 80px;
+    font-weight: 800;
+    color: rgba(247, 241, 151, 0.3);
+    right: 20px;
+    bottom: -20px;
+    line-height: 1;
+    font-family: 'Poppins', serif;
+}
+
+.mission-quote:hover {
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.2), rgba(245, 238, 132, 0.3));
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(71, 67, 6, 0.15);
+    border-left-color: #474306;
+}
+
+/* Member Section */
+.member {
+    position: relative;
+    padding: 50px 97px 100px;
+    min-height: 400px;
+}
+
+.member-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 1.16;
+    color: #F7F197;
+    margin: 0 0 100px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.member-grid {
+    position: absolute;
+    right: 100px;
+    top: 200px;
+    width: 50px;
+    height: 56px;
+    display: none; /* Hide the decorative elements */
+    flex-direction: column;
+    gap: 16px;
+    z-index: 3;
+}
+
+.member-card {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.member-avatar {
+    position: absolute;
+    width: 6px;
+    height: 24px;
+    left: 9px;
+    top: 0px;
+    background-color: #474306;
+    border-radius: 6px;
+}
+
+.member-card-border {
+    position: absolute;
+    width: 24px;
+    height: 6px;
+    left: 0px;
+    top: 9px;
+    background-color: #474306;
+    border-radius: 6px;
+}
+
+/* Member Profile Cards */
+.member-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.member-profile-card {
+    background-color: rgba(247, 241, 151, 0.2);
+    border-radius: 25px;
+    padding: 60px 45px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    min-width: 320px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.member-profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.1), rgba(71, 67, 6, 0.1));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.member-profile-card:hover {
+    transform: translateY(-10px);
+    border-color: #F7F197;
+    box-shadow: 0 20px 40px rgba(71, 67, 6, 0.2);
+    background-color: rgba(247, 241, 151, 0.3);
+}
+
+.member-photo {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 35px;
+}
+
+.member-circle-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #F7F197, #F5EE84);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 72px;
+    color: #474306;
+    border: 6px solid #474306;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.member-circle-avatar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.member-profile-card:hover .member-circle-avatar {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(71, 67, 6, 0.3);
+}
+
+.member-profile-card:hover .member-circle-avatar::before {
+    opacity: 1;
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(0%) translateY(0%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.member-info {
+    position: relative;
+    z-index: 2;
+}
+
+.member-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #03045E;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.member-quote {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #474306;
+    margin: 0;
+    font-style: italic;
+    letter-spacing: 0.3px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.member-profile-card:hover .member-name {
+    color: #474306;
+    transform: scale(1.05);
+}
+
+.member-profile-card:hover .member-quote {
+    opacity: 1;
+    color: #03045E;
+    transform: scale(1.02);
+}
+
+/* Contact Section */
+.contact {
+    position: relative;
+    padding: 80px 97px 120px;
+    min-height: 400px;
+}
+
+.contact-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 1.16;
+    color: #F7F197;
+    margin: 0 0 60px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 600px;
+}
+
+.contact-item {
+    background-color: rgba(247, 241, 151, 0.15);
+    border-radius: 15px;
+    padding: 30px 40px;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-icon {
+    font-size: 36px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.3), rgba(245, 238, 132, 0.5));
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.contact-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #474306;
+    margin: 8px 0 15px 0;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.contact-item:hover {
+    border-color: #F7F197;
+    background-color: rgba(247, 241, 151, 0.25);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(71, 67, 6, 0.2);
+}
+
+.contact-item:hover .contact-icon {
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.6), rgba(245, 238, 132, 0.8));
+    transform: scale(1.1) rotate(5deg);
+}
+
+.social-emoji {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.contact-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #474306;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #03045E;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contact-social {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.contact-social-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #03045E;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: rgba(245, 238, 132, 0.3);
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.contact-social-link:hover {
+    background-color: #F5EE84;
+    border-color: #474306;
+    color: #474306;
+    transform: scale(1.05);
+}
+
+/* Contact Email Button */
+.contact-email-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #F5EE84, #F7F197);
+    color: #474306;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid #474306;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-email-button::before {
+    content: '✉️';
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.contact-email-button:hover {
+    background: linear-gradient(135deg, #474306, #5a5108);
+    color: #F5EE84;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 67, 6, 0.3);
+}
+
+.contact-email-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(71, 67, 6, 0.3);
+}
+
+/* Animation keyframes */
+@keyframes ripple {
+    to {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 20px;
+    }
+    
+    .navigation {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: 15px;
+    }
+    
+    .navigation ul {
+        gap: 30px;
+    }
+    
+    .social-icons {
+        margin-top: 20px;
+    }
+    
+    .hero {
+        padding: 80px 20px 120px;
+    }
+    
+    .hero-title {
+        font-size: clamp(40px, 7vw, 100px);
+        margin-bottom: 100px;
+    }
+    
+    .typing-cursor {
+        font-size: clamp(40px, 7vw, 100px);
+    }
+    
+    .details-button {
+        margin: 30px 0 0 0;
+    }
+    
+    .mission, .member {
+        padding: 30px 20px 50px;
+    }
+    
+    .mission-title, .member-title {
+        font-size: clamp(40px, 7vw, 100px);
+    }
+    
+    .mission-quote {
+        font-size: clamp(16px, 2vw, 24px);
+        max-width: 100%;
+        padding: 30px 40px 30px 50px;
+    }
+    
+    .mission-quote::before {
+        font-size: 80px;
+        left: 10px;
+        top: -5px;
+    }
+    
+    .mission-quote::after {
+        font-size: 60px;
+        right: 15px;
+        bottom: -15px;
+    }
+    
+    .member-grid {
+        display: none;
+    }
+    
+    .member-cards-container {
+        gap: 40px;
+        margin-top: 60px;
+    }
+    
+    .member-profile-card {
+        min-width: 280px;
+        padding: 50px 35px;
+    }
+    
+    .member-circle-avatar {
+        width: 150px;
+        height: 150px;
+        font-size: 60px;
+        border-width: 5px;
+    }
+    
+    .member-name {
+        font-size: 26px;
+    }
+    
+    .contact {
+        padding: 60px 20px 80px;
+    }
+    
+    .contact-title {
+        font-size: clamp(40px, 7vw, 100px);
+        margin-bottom: 40px;
+    }
+    
+    .contact-item {
+        padding: 25px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .contact-icon {
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+    
+    .contact-details {
+        width: 100%;
+    }
+    
+    .contact-social {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .contact-social-link {
+        flex: 0 0 auto;
+        min-width: auto;
+    }
+    
+    .contact-label {
+        font-size: 18px;
+    }
+    
+    .contact-value {
+        font-size: 20px;
+    }
+    
+    .contact-email-button {
+        font-size: 15px;
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        display: inline-block;
+        margin: 10px auto 0;
+    }
+    
+    .hamburger-lines {
+        left: 20px;
+        top: 380px;
+    }
+    
+    .hamburger-menu {
+        right: 20px;
+        top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        text-align: center;
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .logo {
+        gap: 10px;
+    }
+    
+    .logo-image {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo h1 {
+        font-size: 20px;
+    }
+    
+    .navigation ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-link {
+        font-size: 16px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .hero {
+        padding: 60px 15px 80px;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: clamp(32px, 8vw, 60px);
+        margin-bottom: 60px;
+        text-align: center;
+        line-height: 1.2;
+    }
+    
+    .typing-cursor {
+        font-size: clamp(32px, 8vw, 60px);
+    }
+    
+    .hero-location {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .details-button {
+        position: relative;
+        left: auto;
+        display: block;
+        margin: 30px auto 0;
+        width: 140px;
+        height: 56px;
+    }
+    
+    .details-button span {
+        font-size: 16px;
+    }
+    
+    .mission, .member {
+        padding: 40px 15px;
+        text-align: center;
+    }
+    
+    .mission-title, .member-title {
+        font-size: clamp(32px, 8vw, 60px);
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .mission-quote {
+        font-size: clamp(14px, 4vw, 18px);
+        line-height: 1.6;
+        text-align: justify;
+        max-width: 100%;
+        padding: 25px 30px 25px 40px;
+        border-left-width: 4px;
+    }
+    
+    .mission-quote::before {
+        font-size: 60px;
+        left: 8px;
+        top: 0px;
+    }
+    
+    .mission-quote::after {
+        font-size: 45px;
+        right: 10px;
+        bottom: -10px;
+    }
+    
+    .member-grid {
+        display: none;
+    }
+    
+    .hamburger-lines,
+    .hamburger-menu {
+        display: none;
+    }
+    
+    .member-grid {
+        display: none;
+    }
+    
+    .member-cards-container {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 40px;
+        align-items: center;
+    }
+    
+    .member-profile-card {
+        min-width: 240px;
+        width: 90%;
+        max-width: 350px;
+        padding: 40px 30px;
+    }
+    
+    .member-circle-avatar {
+        width: 120px;
+        height: 120px;
+        font-size: 48px;
+        border-width: 4px;
+    }
+    
+    .member-name {
+        font-size: 24px;
+    }
+    
+    .contact {
+        padding: 40px 15px 60px;
+        text-align: center;
+    }
+    
+    .contact-title {
+        font-size: clamp(32px, 8vw, 60px);
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .contact-info {
+        gap: 20px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .contact-item {
+        padding: 20px 25px;
+        text-align: center;
+    }
+    
+    .contact-label {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .contact-value {
+        font-size: 18px;
+    }
+    
+    .contact-social {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .contact-social-link {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    
+    .contact-email-button {
+        font-size: 14px;
+        padding: 8px 18px;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+    
+    .logo {
+        gap: 8px;
+    }
+    
+    .logo-image {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .logo h1 {
+        font-size: 18px;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+    }
+    
+    .social-icons {
+        gap: 15px;
+    }
+    
+    .social-icon {
+        width: 20px;
+    }
+    
+    .hero {
+        padding: 40px 10px 60px;
+    }
+    
+    .hero-title {
+        font-size: clamp(24px, 10vw, 48px);
+        margin-bottom: 40px;
+    }
+    
+    .typing-cursor {
+        font-size: clamp(24px, 10vw, 48px);
+    }
+    
+    .hero-location {
+        font-size: 16px;
+    }
+    
+    .details-button {
+        width: 120px;
+        height: 48px;
+        margin-top: 30px;
+    }
+    
+    .details-button span {
+        font-size: 14px;
+    }
+    
+    .mission, .member {
+        padding: 30px 10px;
+    }
+    
+    .mission-title, .member-title {
+        font-size: clamp(24px, 10vw, 48px);
+        margin-bottom: 20px;
+    }
+    
+    .mission-quote {
+        font-size: clamp(12px, 4vw, 16px);
+        line-height: 1.5;
+        padding: 20px 25px 20px 35px;
+        border-left-width: 3px;
+    }
+    
+    .mission-quote::before {
+        font-size: 45px;
+        left: 5px;
+        top: 5px;
+    }
+    
+    .mission-quote::after {
+        font-size: 35px;
+        right: 8px;
+        bottom: -8px;
+    }
+    
+    .member-cards-container {
+        margin-top: 30px;
+        gap: 20px;
+    }
+    
+    .member-profile-card {
+        min-width: 200px;
+        width: 95%;
+        max-width: 300px;
+        padding: 35px 25px;
+    }
+    
+    .member-circle-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+        border-width: 4px;
+    }
+    
+    .member-name {
+        font-size: 22px;
+    }
+    
+    .contact {
+        padding: 30px 10px 50px;
+    }
+    
+    .contact-title {
+        font-size: clamp(24px, 10vw, 48px);
+        margin-bottom: 25px;
+    }
+    
+    .contact-info {
+        gap: 15px;
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    
+    .contact-item {
+        padding: 18px 15px;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+    
+    .contact-label {
+        margin-bottom: 6px;
+    }
+    
+    .contact-subtitle {
+        font-size: 12px;
+        margin: 6px 0 12px 0;
+    }
+    
+    .contact-social {
+        gap: 8px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-social-link {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact-label {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .contact-value {
+        font-size: 16px;
+    }
+    
+    .contact-social-link {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .contact-email-button {
+        font-size: 13px;
+        padding: 8px 16px;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        display: inline-block;
+    }
+} 
