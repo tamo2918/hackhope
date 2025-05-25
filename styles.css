@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Force custom cursor on all elements */
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+html {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
 }
 
 body {
@@ -14,6 +20,8 @@ body {
     /* Add initial hidden state for page load animation */
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    /* Custom cursor */
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
 }
 
 /* Show body after page load animation */
@@ -578,7 +586,7 @@ body.loaded {
 .member-cards-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 60px;
     margin-top: 80px;
     flex-wrap: wrap;
@@ -593,9 +601,15 @@ body.loaded {
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
-    min-width: 320px;
+    width: 320px;
+    min-height: 550px;
+    height: 550px;
     backdrop-filter: blur(10px);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 auto;
 }
 
 .member-profile-card::before {
@@ -689,13 +703,17 @@ body.loaded {
 .member-quote {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #474306;
     margin: 0;
     font-style: italic;
     letter-spacing: 0.3px;
     opacity: 0.8;
     transition: all 0.3s ease;
+    line-height: 1.5;
+    text-align: left;
+    hyphens: auto;
+    word-wrap: break-word;
 }
 
 .member-profile-card:hover .member-name {
@@ -969,8 +987,9 @@ body.loaded {
     }
     
     .member-profile-card {
-        min-width: 280px;
+        width: 280px;
         padding: 50px 35px;
+        flex: 0 0 auto;
     }
     
     .member-circle-avatar {
@@ -1173,10 +1192,12 @@ body.loaded {
     }
     
     .member-profile-card {
-        min-width: 240px;
         width: 90%;
-        max-width: 350px;
+        max-width: 320px;
+        min-height: 480px;
+        height: 480px;
         padding: 40px 30px;
+        flex: 0 0 auto;
     }
     
     .member-circle-avatar {
@@ -1330,10 +1351,12 @@ body.loaded {
     }
     
     .member-profile-card {
-        min-width: 200px;
         width: 95%;
-        max-width: 300px;
+        max-width: 280px;
+        min-height: 450px;
+        height: 450px;
         padding: 35px 25px;
+        flex: 0 0 auto;
     }
     
     .member-circle-avatar {
@@ -1421,4 +1444,63 @@ body.loaded {
         text-align: center;
         display: inline-block;
     }
+}
+
+/* Comprehensive custom cursor coverage */
+a, button, input, textarea, select, option, 
+.social-link, .nav-link, .details-button, .member-profile-card, 
+.contact-email-button, .contact-social-link, .logo, .logo-image,
+.social-icon, .instagram-icon, .discord-icon, .mission-quote,
+.contact-item, .hamburger-menu, .page-loader, .container,
+header, main, section, div, span, p, h1, h2, h3, h4, h5, h6,
+ul, li, img, svg {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+/* Interactive elements with pointer behavior */
+a:hover, button:hover, .social-link:hover, .nav-link:hover, 
+.details-button:hover, .member-profile-card:hover, 
+.contact-email-button:hover, .contact-social-link:hover,
+.logo-image:hover, .social-icon:hover, .mission-quote:hover,
+.contact-item:hover {
+    cursor: url('images/cursor-64x64.png') 0 0, pointer !important;
+}
+
+/* Text input areas */
+input[type="text"], input[type="email"], input[type="password"], 
+textarea, [contenteditable="true"] {
+    cursor: url('images/cursor-64x64.png') 0 0, text !important;
+}
+
+/* Ensure all pseudo-elements also use custom cursor */
+*::before, *::after {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+/* Force custom cursor on viewport and document */
+:root {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+/* Override any browser default cursors */
+::-webkit-scrollbar {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+::-webkit-scrollbar-track {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+/* Ensure custom cursor on all states */
+*:active, *:focus, *:visited, *:link {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
+}
+
+/* Override any remaining default cursors */
+[style*="cursor"] {
+    cursor: url('images/cursor-64x64.png') 0 0, auto !important;
 } 
