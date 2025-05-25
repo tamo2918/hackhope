@@ -1,3 +1,80 @@
+// Page load animation
+document.addEventListener('DOMContentLoaded', function() {
+    const pageLoader = document.querySelector('.page-loader');
+    const container = document.querySelector('.container');
+    const body = document.body;
+    
+    // Ensure minimum loading time for smooth effect
+    const minLoadTime = 1000; // 1 second
+    const startTime = Date.now();
+    
+    window.addEventListener('load', function() {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+        
+        setTimeout(() => {
+            // Hide loader
+            pageLoader.classList.add('hidden');
+            
+            // Show body and container with animation
+            setTimeout(() => {
+                body.classList.add('loaded');
+                container.classList.add('loaded');
+                
+                // Remove loader from DOM after animation
+                setTimeout(() => {
+                    pageLoader.remove();
+                }, 500);
+                
+                // Initialize existing animations after page load animation
+                setTimeout(() => {
+                    initializeScrollAnimations();
+                    initTypingAnimation();
+                }, 200);
+            }, 100);
+        }, remainingTime);
+    });
+});
+
+// Initialize scroll animations
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Apply fade-in animation to main elements
+    const animatedElements = document.querySelectorAll('.mission-title, .mission-quote, .member-title, .details-button, .member-profile-card, .contact-title, .contact-item');
+    
+    animatedElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        
+        // Add staggered delay for member cards
+        if (el.classList.contains('member-profile-card')) {
+            const cardIndex = Array.from(document.querySelectorAll('.member-profile-card')).indexOf(el);
+            el.style.transition = `opacity 1s ease ${cardIndex * 0.2}s, transform 1s ease ${cardIndex * 0.2}s`;
+        } else if (el.classList.contains('contact-item')) {
+            // Add staggered delay for contact items
+            const itemIndex = Array.from(document.querySelectorAll('.contact-item')).indexOf(el);
+            el.style.transition = `opacity 1s ease ${itemIndex * 0.15}s, transform 1s ease ${itemIndex * 0.15}s`;
+        } else {
+            el.style.transition = 'opacity 1s ease, transform 1s ease';
+        }
+        
+        observer.observe(el);
+    });
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -32,48 +109,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
             }
         }
     });
-});
-
-// Fade in animation on scroll
-const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Apply fade-in animation to main elements
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.mission-title, .mission-quote, .member-title, .details-button, .member-profile-card, .contact-title, .contact-item');
-    
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        
-        // Add staggered delay for member cards
-        if (el.classList.contains('member-profile-card')) {
-            const cardIndex = Array.from(document.querySelectorAll('.member-profile-card')).indexOf(el);
-            el.style.transition = `opacity 1s ease ${cardIndex * 0.2}s, transform 1s ease ${cardIndex * 0.2}s`;
-        } else if (el.classList.contains('contact-item')) {
-            // Add staggered delay for contact items
-            const itemIndex = Array.from(document.querySelectorAll('.contact-item')).indexOf(el);
-            el.style.transition = `opacity 1s ease ${itemIndex * 0.15}s, transform 1s ease ${itemIndex * 0.15}s`;
-        } else {
-            el.style.transition = 'opacity 1s ease, transform 1s ease';
-        }
-        
-        observer.observe(el);
-    });
-    
-    // Initialize typing animation for hero title
-    initTypingAnimation();
 });
 
 // Typing Animation Function
@@ -206,20 +241,6 @@ document.querySelectorAll('.social-link').forEach(link => {
     });
 });
 
-// Loading animation with better performance
-window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-    
-    // Trigger initial animations
-    setTimeout(() => {
-        const logo = document.querySelector('.logo h1');
-        if (logo) {
-            logo.style.opacity = '1';
-            logo.style.transform = 'translateY(0)';
-        }
-    }, 100);
-});
-
 // Scroll-based navigation highlighting
 function updateActiveNavigation() {
     const sections = document.querySelectorAll('section');
@@ -230,26 +251,22 @@ function updateActiveNavigation() {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+        const sectionHeight = section.offsetHeight;
         
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            current = section.classList.contains('hero') ? '#home' :
-                     section.classList.contains('mission') ? '#about' :
-                     section.classList.contains('contact') ? '#contact' : '';
+            current = section.classList.contains('hero') ? 'home' :
+                     section.classList.contains('mission') ? 'about' :
+                     section.classList.contains('contact') ? 'contact' : '';
         }
     });
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === current) {
+        if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
         }
     });
 }
 
 window.addEventListener('scroll', updateActiveNavigation);
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    updateActiveNavigation();
-}); 
+window.addEventListener('load', updateActiveNavigation); 

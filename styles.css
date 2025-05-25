@@ -11,6 +11,14 @@ body {
     color: #03045E;
     overflow-x: hidden;
     line-height: 1.6;
+    /* Add initial hidden state for page load animation */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Show body after page load animation */
+body.loaded {
+    opacity: 1;
 }
 
 .container {
@@ -19,6 +27,92 @@ body {
     margin: 0 auto;
     position: relative;
     background-color: #FBF8CC;
+    /* Add page load fade in animation */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease-out;
+}
+
+/* Animate container on page load */
+.container.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Page load animation overlay */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FBF8CC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    color: #03045E;
+}
+
+.loader-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.loader-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #03045E;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Header Styles */
