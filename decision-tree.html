@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackHope - 社会問題決定ツリー</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logohack.png">
+    <link rel="shortcut icon" type="image/png" href="images/logohack.png">
+    <link rel="apple-touch-icon" href="images/logohack.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="decision-tree.css">
+</head>
+<body>
+    <!-- Page loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">HackHope</div>
+            <div class="loader-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Decision Tree Content -->
+        <main class="main-content">
+            <section class="decision-tree-section">
+                <h2 class="decision-title">社会問題決定ツリー</h2>
+                <p class="decision-subtitle">あなたの選択が社会の未来を決める</p>
+                
+                <div class="decision-card" id="decision-card">
+                    <div class="question-content">
+                        <h3 class="question-text" id="question-text">読み込み中...</h3>
+                        <div class="choices-container" id="choices-container">
+                            <!-- 選択肢がここに動的に生成されます -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-card hidden" id="result-card">
+                    <div class="result-content">
+                        <div class="result-text" id="result-text"></div>
+                        <button class="restart-button" id="restart-btn">もう一度始める</button>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">質問 1</p>
+                </div>
+                
+                <div class="back-to-home">
+                    <a href="index.html" class="back-button">← ホームに戻る</a>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="decision-tree.js"></script>
+</body>
+</html> 

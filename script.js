@@ -78,8 +78,14 @@ function initializeScrollAnimations() {
 // Smooth scrolling for navigation links
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href');
+        
+        // 外部ページへのリンクの場合は通常の遷移を許可
+        if (!targetId.startsWith('#')) {
+            return; // preventDefault() せずにそのまま遷移
+        }
+        
+        e.preventDefault();
         
         // Remove active class from all links
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
