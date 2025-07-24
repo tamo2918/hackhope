@@ -1504,3 +1504,9 @@ textarea, [contenteditable="true"] {
 [style*="cursor"] {
     cursor: url('images/cursor-64x64.png') 0 0, auto !important;
 } 
+
+.member-profile-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+} 
