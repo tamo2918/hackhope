@@ -727,6 +727,133 @@ body.loaded {
     transform: scale(1.02);
 }
 
+/* Event Section */
+.event {
+    position: relative;
+    padding: 80px 97px 120px;
+    min-height: 400px;
+}
+
+.event-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+    line-height: 1.16;
+    color: #F7F197;
+    margin: 0 0 60px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.event-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 600px;
+}
+
+.event-item {
+    background-color: rgba(247, 241, 151, 0.15);
+    border-radius: 15px;
+    padding: 30px 40px;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.event-icon {
+    font-size: 36px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.3), rgba(245, 238, 132, 0.5));
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #474306;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+.event-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #03045E;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+.event-item:hover {
+    border-color: #F7F197;
+    background-color: rgba(247, 241, 151, 0.25);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(71, 67, 6, 0.2);
+}
+
+.event-item:hover .event-icon {
+    background: linear-gradient(135deg, rgba(247, 241, 151, 0.6), rgba(245, 238, 132, 0.8));
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Event Feedback Button */
+.event-feedback-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #F5EE84, #F7F197);
+    color: #474306;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid #474306;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-feedback-button::before {
+    content: '💬';
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.event-feedback-button:hover {
+    background: linear-gradient(135deg, #474306, #5a5108);
+    color: #F5EE84;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 67, 6, 0.3);
+}
+
+.event-feedback-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(71, 67, 6, 0.3);
+}
+
 /* Contact Section */
 .contact {
     position: relative;
@@ -1012,36 +1139,41 @@ body.loaded {
         margin-bottom: 40px;
     }
     
-    .event-cards-container {
-        gap: 40px;
-        margin-top: 60px;
+    .event-item {
+        padding: 25px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        align-items: center;
     }
     
-    .event-profile-card {
-        width: 90%;
-        max-width: 500px;
-        padding: 30px 40px;
-        flex: 0 0 auto;
+    .event-icon {
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
     }
     
-    .event-profile-card {
-        width: 95%;
-        max-width: 280px;
-        min-height: 250px;
-        padding: 35px 25px;
+    .event-details {
+        width: 100%;
     }
-
-    .event-name {
-        font-size: 22px;
+    
+    .event-label {
+        font-size: 18px;
     }
-
-    .event-location {
-        font-size: 14px;
+    
+    .event-value {
+        font-size: 20px;
     }
-
-    .event-button {
-        font-size: 14px;
+    
+    .event-feedback-button {
+        font-size: 15px;
         padding: 10px 20px;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        display: inline-block;
+        margin: 10px auto 0;
     }
     
     .contact {
@@ -1180,7 +1312,7 @@ body.loaded {
         font-size: 16px;
     }
     
-    .mission, .member {
+    .mission, .member, .event {
         padding: 40px 15px;
         text-align: center;
     }
@@ -1252,27 +1384,42 @@ body.loaded {
         font-size: 24px;
     }
     
-    .event-cards-container {
-        flex-direction: column;
-        gap: 30px;
-        margin-top: 40px;
-        align-items: center;
+    .event {
+        padding: 40px 15px 60px;
+        text-align: center;
     }
     
-    .event-profile-card {
-        width: 90%;
-        max-width: 320px;
-        min-height: 280px;
-        height: auto;
-        padding: 40px 30px;
-        flex: 0 0 auto;
-        justify-content: center;
+    .event-title {
+        font-size: clamp(32px, 8vw, 60px);
+        margin-bottom: 30px;
+        text-align: center;
     }
     
-    .event-name {
-        font-size: 24px;
-        word-wrap: break-word;
-        line-height: 1.5;
+    .event-info {
+        gap: 20px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .event-item {
+        padding: 20px 25px;
+        text-align: center;
+    }
+    
+    .event-label {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .event-value {
+        font-size: 18px;
+    }
+    
+    .event-feedback-button {
+        font-size: 14px;
+        padding: 8px 18px;
+        margin-top: 12px;
     }
     
     .contact {
@@ -1381,7 +1528,7 @@ body.loaded {
         font-size: 14px;
     }
     
-    .mission, .member {
+    .mission, .member, .event {
         padding: 30px 10px;
     }
     
@@ -1432,6 +1579,53 @@ body.loaded {
     
     .member-name {
         font-size: 22px;
+    }
+    
+    .event {
+        padding: 30px 10px 50px;
+    }
+    
+    .event-title {
+        font-size: clamp(24px, 10vw, 48px);
+        margin-bottom: 25px;
+    }
+    
+    .event-info {
+        gap: 15px;
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    
+    .event-item {
+        padding: 18px 15px;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .event-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+    
+    .event-label {
+        margin-bottom: 6px;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .event-value {
+        font-size: 16px;
+    }
+    
+    .event-feedback-button {
+        font-size: 13px;
+        padding: 8px 16px;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        display: inline-block;
     }
     
     .contact {
@@ -1513,7 +1707,7 @@ body.loaded {
 /* Comprehensive custom cursor coverage */
 a, button, input, textarea, select, option, 
 .social-link, .nav-link, .details-button, .member-profile-card, 
-.contact-email-button, .contact-social-link, .logo, .logo-image,
+.contact-email-button, .contact-social-link, .event-feedback-button, .logo, .logo-image,
 .social-icon, .instagram-icon, .discord-icon, .mission-quote,
 .contact-item, .hamburger-menu, .page-loader, .container,
 header, main, section, div, span, p, h1, h2, h3, h4, h5, h6,
@@ -1524,9 +1718,9 @@ ul, li, img, svg {
 /* Interactive elements with pointer behavior */
 a:hover, button:hover, .social-link:hover, .nav-link:hover, 
 .details-button:hover, .member-profile-card:hover, 
-.contact-email-button:hover, .contact-social-link:hover,
+.contact-email-button:hover, .contact-social-link:hover, .event-feedback-button:hover,
 .logo-image:hover, .social-icon:hover, .mission-quote:hover,
-.contact-item:hover {
+.contact-item:hover, .event-item:hover {
     cursor: url('images/cursor-64x64.png') 0 0, pointer !important;
 }
 
@@ -1573,155 +1767,4 @@ textarea, [contenteditable="true"] {
     text-decoration: none;
     color: inherit;
     display: block;
-}
-
-/* Event Section */
-.event {
-    position: relative;
-    padding: 50px 97px 100px;
-    min-height: 400px;
-}
-
-.event-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    font-size: 100px;
-    line-height: 1.16;
-    color: #F7F197;
-    margin: 0 0 100px 0;
-    position: relative;
-    z-index: 3;
-}
-
-/* Event Profile Cards */
-.event-cards-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 60px;
-    margin-top: 80px;
-    flex-wrap: wrap;
-}
-
-.event-profile-card {
-    background-color: rgba(247, 241, 151, 0.2);
-    border-radius: 25px;
-    padding: 40px 50px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 600px;
-    min-height: 200px;
-    height: auto;
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 auto;
-}
-
-.event-profile-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(247, 241, 151, 0.1), rgba(71, 67, 6, 0.1));
-    z-index: 1;
-    pointer-events: none;
-}
-
-.event-profile-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(71, 67, 6, 0.2);
-    background-color: rgba(247, 241, 151, 0.3);
-}
-
-.event-info {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.event-name {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #03045E;
-    margin: 0 0 15px 0;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-.event-location {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: #474306;
-    margin: 0;
-    font-style: italic;
-    letter-spacing: 0.3px;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-    line-height: 1.5;
-    text-align: center;
-}
-
-.event-button {
-    background: linear-gradient(135deg, #F7F197, #F5EE84);
-    color: #474306;
-    border: none;
-    border-radius: 15px;
-    padding: 15px 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: 2px solid #474306;
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-}
-
-.event-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.5s ease;
-}
-
-.event-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(71, 67, 6, 0.3);
-    background: linear-gradient(135deg, #F5EE84, #F7F197);
-}
-
-.event-button:hover::before {
-    left: 100%;
-}
-
-.event-profile-card:hover .event-name {
-    color: #474306;
-    transform: scale(1.05);
-}
-
-.event-profile-card:hover .event-location {
-    opacity: 1;
-    color: #03045E;
-    transform: scale(1.02);
 } 
